@@ -8,6 +8,7 @@ from werkzeug.security import check_password_hash, generate_password_hash
 from acebook.db import get_db
 from acebook.user import User
 
+
 bp = Blueprint('auth', __name__, url_prefix='/auth')
 
 @bp.route('/register', methods=('GET', 'POST'))
@@ -15,6 +16,8 @@ def register():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
+        # password_list = password.split()
+        # char = [ '@', '£', '%', '&' ]
         # db = get_db()
         error = None
 
@@ -24,6 +27,15 @@ def register():
             error = 'Password is required.'
         elif User.find(username) is not None:
             error = f"User {username} is already registered."
+        elif password.isalpha():
+            error = 'Password must contain numbers and/or symbols'
+        elif len(password) < 8:
+            error = 'Password must be more than 8 characters long'
+
+        # print(f'5555555 {password_list}')
+        
+
+
 
         if error is None:
             User.create(username, password)
