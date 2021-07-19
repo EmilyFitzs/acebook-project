@@ -21,7 +21,7 @@ class Post():
       ' ORDER BY created DESC'
     ).fetchall()
 
-    print(posts[0].keys())
+    # print(posts[0].keys())
 
     return [
       Post(
