@@ -27,7 +27,7 @@ def create():
         if error is not None:
             flash(error)
         else:
-            # db = get_db()
+            db = get_db()
             Post.create(title, body, g.user.id)
             return redirect(url_for('posts.index'))
 
@@ -44,7 +44,7 @@ def get_post(id, check_author=True):
 
     return post
 
-@bp.route('/<int:id>/update', methods=('GET', 'POST'))
+@bp.route('/update/<int:id>', methods=('GET', 'POST'))
 @login_required
 def update(id):
     post = get_post(id)
@@ -66,7 +66,7 @@ def update(id):
 
     return render_template('posts/update.html', post=post)
 
-@bp.route('/<int:id>/delete', methods=('POST',))
+@bp.route('/delete/<int:id>', methods=('POST',))
 @login_required
 def delete(id):
     post = Post.find_by_id(id)

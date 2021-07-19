@@ -21,6 +21,7 @@ class Post():
       ' ORDER BY created DESC'
     ).fetchall()
 
+
     return [
       Post(
         post['title'],

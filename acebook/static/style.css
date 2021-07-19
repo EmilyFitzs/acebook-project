@@ -1,19 +1,24 @@
 html {
    font-family: sans-serif;
    background: #eee;
-   padding: 1rem;
+   width: auto;
 }
 
 body {
-   max-width: 960px;
+   width: auto;
    margin: 0 auto;
    background: white;
+   padding: 5rem;
 }
 
 h1 {
    font-family: serif;
-   color: #377ba8;
+   color: black;
    margin: 1rem 0;
+}
+
+.container-fluid {
+   padding: 2rem;
 }
 
 a {
@@ -22,11 +27,11 @@ a {
 
 hr {
    border: none;
-   border-top: 1px solid lightgray;
+   border-top: 1px solid #3b5998;
 }
 
 nav {
-   background: lightgray;
+   background: #3b5998;
    display: flex;
    align-items: center;
    padding: 0 0.5rem;
@@ -59,7 +64,7 @@ nav ul li a, nav ul li span, header .action {
 }
 
 .content > header {
-   border-bottom: 1px solid lightgray;
+   border-bottom: 1px solid black;
    display: flex;
    align-items: flex-end;
 }
@@ -92,7 +97,7 @@ nav ul li a, nav ul li span, header .action {
 }
 
 .post .about {
-   color: slategray;
+   color: grey;
    font-style: italic;
 }
 
