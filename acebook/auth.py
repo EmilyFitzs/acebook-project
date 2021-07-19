@@ -14,6 +14,9 @@ bp = Blueprint('auth', __name__, url_prefix='/auth')
 @bp.route('/register', methods=('GET', 'POST'))
 def register():
     if request.method == 'POST':
+        firstname = request.form['firstname']
+        lastname = request.form['lastname']
+        birthday = request.form['birthday']
         username = request.form['username']
         password = request.form['password']
         # password_list = password.split()
@@ -23,6 +26,12 @@ def register():
 
         if not username:
             error = 'Username is required.'
+        elif not firstname:
+            error = 'First name is required'
+        elif not lastname:
+            error = 'Last name is required'
+        elif not birthday:
+            error = 'Birthday is required'
         elif not password:
             error = 'Password is required.'
         elif User.find(username) is not None:
@@ -38,8 +47,8 @@ def register():
 
 
         if error is None:
-            User.create(username, password)
-            return redirect(url_for('auth.login'))
+            User.create(firstname, lastname, birthday, username, password)
+            return redirect(url_for('posts.index'))
 
         flash(error)
 

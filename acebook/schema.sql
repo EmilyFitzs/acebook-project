@@ -3,8 +3,12 @@ DROP TABLE IF EXISTS post;
 
 CREATE TABLE user (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
+  firstname TEXT NOT NULL,
+  lastname TEXT NOT NULL,
+  birthday DATETIME NOT NULL,
   username TEXT UNIQUE NOT NULL,
   password TEXT NOT NULL
+
 );
 
 CREATE TABLE post (
